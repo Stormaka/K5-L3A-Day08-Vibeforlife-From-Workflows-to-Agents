@@ -14,7 +14,7 @@
 |   1 | Hoàng Bảo Nguyên | 2A202603384 | (thành viên tự điền email) | Stormaka | Nhóm trưởng — workflow + integration + ADR |
 |   2 | (thành viên tự điền) | | | | single (ReAct) |
 |   3 | Bùi Quang Huy | 2A202603469 | 26ai.huybq2@vinuni.edu.vn | harveybui888-max | orchestrator + handoff |
-|   4 | (thành viên tự điền) | | | | benchmark/crash/report + bonus B3 |
+|   4 | Lê Quang Vinh | 2A202603363 | 26ai.vinhlq2@vinuni.edu.vn | lequangvinh21 | benchmark/crash/report + bonus B3 (kiểm chứng chéo) |
 
 Phân vai theo gợi ý nhóm 4 người: workflow + integration (nhóm trưởng); single; orchestrator + handoff; eval/report + bonus.
 
@@ -27,7 +27,7 @@ Phân vai theo gợi ý nhóm 4 người: workflow + integration (nhóm trưởn
 | Hoàng Bảo Nguyên | workflow + integration + ADR | commit chốt trên `main` (xem ADR); nhánh cá nhân `HoangBaoNguyen-2A202603384` | `tests/test_workflow_member.py` (6 test: từ chối ticket nói quá trên 5 seed; trace không chứa chữ ticket) |
 | (Thành viên 2 — tự điền) | single ReAct | (tự điền sau khi merge nhánh cá nhân vào `main`) | `tests/test_single_member.py` (2 test: ReAct trong step cap; không mắc điểm yếu seed 55) |
 | Bùi Quang Huy | orchestrator + handoff | `7d4779c` trên nhánh cá nhân `BuiQuangHuy-2A202603469` | `tests/test_orchestrator_member.py` (2 test: handoff sanitize trong trace; không lộ PII đơn của người khác) |
-| (Thành viên 4 — tự điền) | eval/report + bonus B3 | (tự điền sau khi merge nhánh cá nhân vào `main`) | `tests/test_bonus_swarm_verified.py` (58 test cho biến thể B3) |
+| Lê Quang Vinh | QA/eval/report + test toàn vẹn chứng từ | commit trên nhánh `LeQuangVinh-2A202603363` (hash điền sau khi push) | `tests/test_eval_integrity.py` (4 test: lưới benchmark đúng contract, crash 20/20, số ADR khớp benchmark, bonus đủ 3 biến thể) |
 
 ## Cá nhân
 
@@ -35,4 +35,5 @@ Báo cáo cá nhân nằm trong `report/team/`:
 
 - `report/team/2A202603384_HoangBaoNguyen.md` — đã nộp
 - `report/team/2A202603469_BuiQuangHuy.md` — đã nộp
-- Thành viên 2 và 4: copy mẫu `report/team/MSSV_HoTen.md`, điền và push trước deadline.
+- `report/team/2A202603363_LeQuangVinh.md` — đã nộp
+- Thành viên 2 (single): copy mẫu `report/team/MSSV_HoTen.md`, điền và push trước deadline.
