@@ -12,7 +12,7 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Hoàng Bảo Nguyên | 2A202603384 | 26ai.nguyenhb@vinuni.edu.vn | Stormaka | Nhóm trưởng — workflow + integration + ADR |
-|   2 | Hoàng Minh Huy |2A202603495  |hmhuyyy |26ai.huyhm@vinuni.edu.vn | single (ReAct) |
+|   2 | Hoàng Minh Huy |2A202603495  |26ai.huyhm@vinuni.edu.vn |hmhuyyy | single (ReAct) |
 |   3 | Bùi Quang Huy | 2A202603469 | 26ai.huybq2@vinuni.edu.vn | harveybui888-max | orchestrator + handoff |
 |   4 | Lê Quang Vinh |2A202603363 | 26ai.vinhlq2@vinuni.edu.vn | lequangvinh21 | benchmark/crash/report + bonus B3 |
 
