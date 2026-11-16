@@ -25,7 +25,7 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| Hoàng Minh Huy | Shape B – Single Agent (ReAct) | (điền hash sau khi commit) | Triển khai `src/lab8/shapes/single.py`; tự kiểm bằng `pytest -k "single and not workflow and not orchestrator"` (122 passed) |
+| Hoàng Minh Huy | Shape B – Single Agent (ReAct) | c52f34b | Triển khai `src/lab8/shapes/single.py`; tự kiểm bằng `pytest -k "single and not workflow and not orchestrator"` (122 passed) |
 
 ## Cá nhân
 

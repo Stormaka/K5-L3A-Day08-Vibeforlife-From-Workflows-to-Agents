@@ -6,7 +6,7 @@ Tối đa 5 trang ngoài phụ lục. Số liệu lấy từ file trong `src/rep
 
 - Tên nhóm: Vibeforlife
 - Thành viên: xem `TEAM.md`
-- Commit chốt (trùng `report/team/decision_adr.md`): (điền sau khi commit)
+- Commit chốt (trùng `report/team/decision_adr.md`): c52f34b
 
 ## 2. Mục tiêu và cách tiếp cận
 

@@ -4,7 +4,7 @@
 `Shape chọn` phải là đúng một trong: `workflow`, `single`, `orchestrator`, `swarm`. Đây là shape được chấm cổng hidden.
 
 - Shape chọn: single
-- Commit hash: (chưa có git — xem ghi chú bên dưới)
+- Commit hash: c52f34b
 - Run id dẫn chứng: R-single-C-001-s11
 - Pass rate / pass^5 / seed min-max / variance: 1.000 / 1.000 / 1.000–1.000 / 0.000000 (src/reports/benchmark.json)
 - Cost per success (mô phỏng, VND): 31.31 VND (src/reports/benchmark.json)
@@ -29,4 +29,4 @@ Trace của `single` ghi các event: `claim_view` (chỉ `{found, claim_id, orde
 
 MockLLM không phải model sản xuất. Latency để `unavailable`. Không sửa JSON cho đủ 0.75. Workflow và Orchestrator chưa được implement trong submission này (vẫn là stub `not_implemented`); số liệu pass rate = 0.000 cho hai shape đó là do stub, không phải lỗi logic. Shape được chấm cổng hidden là `single` với pass rate 1.000 trên toàn bộ bộ công khai.
 
-*Ghi chú commit hash:* Repository chưa được khởi tạo git trong môi trường này. Sinh viên cần chạy `git init && git add . && git commit -m "..."` và điền hash thực tế vào dòng "Commit hash" ở trên trước khi nộp.
+*Ghi chú commit hash:* Commit hash thực tế: `c52f34b` (branch `HoangMinhHuy`, repo https://github.com/Stormaka/K5-L3A-Day08-Vibeforlife-From-Workflows-to-Agents).
