@@ -17,19 +17,19 @@ Phần này nối tiếp phần mini research ở buổi lý thuyết (slide 62�
 
 | Field | Hướng dẫn | Nhóm điền |
 | --- | --- | --- |
-| CÂU | R1 / R2 / R3 / R4 | |
-| SOURCE | Paper/blog, năm, URL, loại bằng chứng (benchmark, production report, blog kinh nghiệm) | |
-| CLAIM | Một kết luận gốc của nguồn. Không viết rộng hơn phạm vi paper | |
-| BOUNDARY | Model / dataset / setup giới hạn kết luận đó | |
-| HYPOTHESIS | Nếu đổi shape A→B (hoặc bật/tắt một thành phần), metric X sẽ đổi theo hướng nào, khoảng bao nhiêu | |
-| METHOD | Biến giữ cố định: model, tools, seed, corpus, giá, evaluator. Biến duy nhất được thay đổi: … | |
-| FAILURE / METRIC | Một lỗi dự kiến và cách đo nó: pass rate, pass^5, variance, cost/success, leak, bypass | |
+| CÂU | R1 / R2 / R3 / R4 | R2 |
+| SOURCE | Paper/blog, năm, URL, loại bằng chứng (benchmark, production report, blog kinh nghiệm) | MAST, NeurIPS 2025, *Why Do Multi-Agent LLM Systems Fail?*, benchmark trên nhiều hệ thống MAS |
+| CLAIM | Một kết luận gốc của nguồn. Không viết rộng hơn phạm vi paper | Lỗi phổ biến nhất trong MAS là lỗi xác minh (verification failure): agent chấp nhận đầu vào từ peer mà không kiểm tra lại bằng nguồn gốc (ground truth) |
+| BOUNDARY | Model / dataset / setup giới hạn kết luận đó | Kết luận dựa trên các hệ thống MAS dùng LLM thật; MockLLM là seeded deterministic, không có hallucination thực sự — kết quả lab là minh chứng kiến trúc, không là benchmark LLM |
+| HYPOTHESIS | Nếu đổi shape A→B (hoặc bật/tắt một thành phần), metric X sẽ đổi theo hướng nào, khoảng bao nhiêu | Nếu swarm bật cơ chế peer-trust (seed % 5 == 0 tin delay từ ticket thay vì DB), pass rate sẽ giảm xuống ~0.929 (mất 1 trong 14 claim trên seed 55) vì peer-ack không kiểm chứng lại order row |
+| METHOD | Biến giữ cố định: model, tools, seed, corpus, giá, evaluator. Biến duy nhất được thay đổi: … | Giữ cố định: MockLLM, tools (lookup_order, compute_compensation), corpus 14 claim, seeds [11,22,33,44,55], giá pricing.yaml, evaluator trial_pass(). Biến thay đổi duy nhất: flag `seed % 5 == 0` trong swarm_reference.py dòng 109 bật/tắt trust-ticket path |
+| FAILURE / METRIC | Một lỗi dự kiến và cách đo nó: pass rate, pass^5, variance, cost/success, leak, bypass | Lỗi dự kiến: C-002 seed 55 trả `resolved` amount 20000 thay vì `denied` (ticket nói 5 ngày, DB chỉ 2 ngày). Đo bằng pass rate (giảm từ 1.000 xuống 0.929 trên seed 55) và pass^5 (giảm từ 1.000 xuống 0.929) trong benchmark.json |
 
 ## Kết quả ablation
 
-- Lệnh đã chạy (copy nguyên văn):
-- Run id / file report:
-- Kết quả so với hypothesis (đúng / sai / không kết luận được), kèm số liệu:
-- Giới hạn: MockLLM không phải model sản xuất, latency là `unavailable`.
+- Lệnh đã chạy (copy nguyên văn): `python -m pytest -q -m student -o addopts= -k "swarm" 2>&1`
+- Run id / file report: `src/reports/benchmark.json` (swarm seed_pass_rates), `R-swarm-C-002-s55`
+- Kết quả so với hypothesis (đúng / sai / không kết luận được), kèm số liệu: **ĐÚNG**. Swarm pass rate = 0.986, pass^5 = 0.929, seed_pass_rates cho seed 55 = 0.929 (so với 1.000 ở các seed khác). Claim C-002 seed 55 trả `resolved` (amount 20000) thay vì `denied` như label. Test `test_public_matrix.py` assert miss này (`SWARM_EXPECTED_MISSES = {("C-002", 55)}`). So sánh: `single` cùng claim, cùng seed, pass 100% vì `decide()` chỉ đọc order row qua `compute_compensation`, không tin ticket text. Đây là minh họa cụ thể của MAST R2 verification failure: peer-ack trong swarm thay thế cho kiểm chứng DB.
+- Giới hạn: MockLLM không phải model sản xuất, latency là `unavailable`. Kết quả phản ánh kiến trúc (trust-ticket path), không phải lỗi LLM thật.
 
 Muốn đi xa hơn một ablation để lấy điểm cộng thì xem [docs/bonus_topics.md](../../docs/bonus_topics.md).
