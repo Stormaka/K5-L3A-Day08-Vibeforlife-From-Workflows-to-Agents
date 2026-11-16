@@ -38,6 +38,8 @@ Từ `src/reports/benchmark.json` (4 shape × 14 public claim × 5 seed, mỗi t
 
 Crash safety `20/20` (`src/reports/crash.json`). Ma trận student T01–T14 × 4 shape × 5 seed: 248/248 pass. Không có secret/PII leak hay approval bypass trên 280 trial public.
 
+Tự kiểm trên bộ hidden  (40 claim × 5 seed, không nhãn, CP5): cả 3 shape chạy đủ 600 trial,  = 0,  = 0, trace contract pass toàn bộ (). Ba kiến trúc độc lập cho phân bố kết quả giống hệt nhau (95 denied / 90 resolved / 5 needs_info / 10 escalated trên 200 trial mỗi shape) — đồng thuận 100% từng trial. Đối chiếu với swarm tham chiếu: lệch đúng 6 trial, tất cả ở seed 55 (5 lần trả tiền vì tin số ngày trong ticket, 1 lần từ chối vì ticket nói thiếu ngày) — khớp đúng điểm yếu cố ý đã ghi trong README và ước lượng pass 0.97 / pass⁵ 0.85 của giảng viên cho swarm. Kết quả chính thức do grader chấm.
+
 Quyết định: chọn **workflow** — pass 1.000 như hai shape còn lại nhưng rẻ nhất (28,79 VND/success) và variance 0; task có luật đóng và nguồn sự thật có cấu trúc nên không cần model ra quyết định. Chi tiết và điều kiện đảo ngược: `report/team/decision_adr.md`. Phiếu nghiên cứu và ablation 4-shape (R4): `report/team/research_card.md`. Bonus B3 (verifier bằng code trước khi ghi, kéo swarm từ 0.945 → 1.000 trên bộ 11 claim đối kháng tự viết): `report/team/bonus_report.md`.
 
 ## 5. Khó khăn và cách xử lý
