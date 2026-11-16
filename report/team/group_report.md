@@ -6,7 +6,7 @@ Tối đa 5 trang ngoài phụ lục. Số liệu lấy từ file trong `src/rep
 
 - Tên nhóm: Vibeforlife (L3A)
 - Thành viên: xem `TEAM.md` (4 người: workflow+integration, single, orchestrator+handoff, eval/report+bonus)
-- Commit chốt (trùng `report/team/decision_adr.md`): 744dddd
+- Commit chốt (trùng `report/team/decision_adr.md`): f382ad0
 
 ## 2. Mục tiêu và cách tiếp cận
 
