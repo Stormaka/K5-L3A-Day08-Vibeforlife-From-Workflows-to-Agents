@@ -25,9 +25,9 @@ Phân vai theo gợi ý nhóm 4 người: workflow + integration (nhóm trưởn
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
 | Hoàng Bảo Nguyên | workflow + integration + ADR | commit chốt trên `main` (xem ADR); nhánh cá nhân `HoangBaoNguyen-2A202603384` | `tests/test_workflow_member.py` (6 test: từ chối ticket nói quá trên 5 seed; trace không chứa chữ ticket) |
-| Hoàng Minh Huy | single ReAct |  | `tests/test_single_member.py` (2 test: ReAct trong step cap; không mắc điểm yếu seed 55) |
+| Hoàng Minh Huy | single ReAct | `526c06c` — nhánh `HoangMinhHuy_2A202603495`, đã merge vào `main` | `tests/test_single_member.py` (2 test: ReAct trong step cap; không mắc điểm yếu seed 55) |
 | Bùi Quang Huy | orchestrator + handoff | `7d4779c` trên nhánh cá nhân `BuiQuangHuy-2A202603469` | `tests/test_orchestrator_member.py` (2 test: handoff sanitize trong trace; không lộ PII đơn của người khác) |
-| Lê Quang Vinh | eval/report + bonus B3 |  | `tests/test_bonus_swarm_verified.py` (58 test cho biến thể B3) |
+| Lê Quang Vinh | eval/report + bonus B3 | `2739d83` — nhánh `LeQuangVinh-2A202603363`, đã merge vào `main` | `tests/test_eval_integrity.py` (4 test: lưới benchmark, crash 20/20, số ADR khớp benchmark, bonus đủ 3 biến thể); kiểm chứng `tests/test_bonus_swarm_verified.py` (58 test) |
 
 ## Cá nhân
 
